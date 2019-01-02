@@ -1,0 +1,10 @@
+def instructions():
+  """This function gives the user instructions on how to play Magnet Monopoly"""
+  print("Here are the rules to Magnet Monopoly! INSERT RULES HERE.")
+  print("")
+  return 
+
+instructions()
+
+player1= input("Player one, input your name. You will go first. ")
+player2= input("Player two, input your name. ")
