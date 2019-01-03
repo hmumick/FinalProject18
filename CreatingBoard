@@ -1,0 +1,8 @@
+def __init__(self, name, color, purchase_price, rent_price, house_1price, house_2price, house3_price):
+    self.name = name
+    self.color = color
+    self.purchase_price = purchase_price 
+    self.rent_price = rent_price
+    self.house_1price = house_1price
+    self.house_2price = house_2price
+    self.house_3price = house3_price
