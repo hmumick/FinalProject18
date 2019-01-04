@@ -1,8 +1,26 @@
-def __init__(self, name, color, purchase_price, rent_price, house_1price, house_2price, house3_price):
+class board_pieces:
+
+  def __init__(self, name, color, purchase_price, house_price, rent_price, house_1price, house_2price, house3_price, house4_price, hotel_price, location):
     self.name = name
     self.color = color
     self.purchase_price = purchase_price 
+    self.house_price = house_price
     self.rent_price = rent_price
     self.house_1price = house_1price
     self.house_2price = house_2price
     self.house_3price = house3_price
+    self.house_4price = house4_price
+    self.hotel_price= hotel_price
+    self.location = location
+
+Go= board_pieces('Go', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A',0)
+Pinto= board_pieces('Pinto', 'purple', 60,50, 2, 10,30,90,160,250,1)
+Chance1= board_pieces('Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 2)
+Arnold= board_pieces('Arnold','purple',60,50,4,20,60,180,320,450, 3)
+Tax1= board_pieces('Tax', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 4)
+MakerSpaceStation= board_pieces('MakerSpaceStation', 'black', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 5)
+Raite= board_pieces('Raite', 'light blue', 100,50,6,30,90,270,400,550,6)
+Chance2= board_pieces('Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 7)
+Gupta= board_pieces('Gupta','lightblue',100,50,6,30,90,270,400,550,8)
+Wickerhauser= board_pieces('Wickerhauser','light blue',120,50,8,40,100,300,450,600,9)
+Jail= board_pieces('Jail', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 10)
