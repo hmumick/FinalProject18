@@ -1,0 +1,8 @@
+dice_answer= input("Are you ready to roll the dice? Type yes or no!").lower()
+
+min = 1
+max = 6
+while dice_answer == "yes":
+  print(f"You rolled a {random.randint(min,max)}")
+  #insert the whole game code Here
+  dice_answer= input("Are you ready to roll the dice? Type yes or no!").lower()
