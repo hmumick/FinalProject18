@@ -1,0 +1,98 @@
+import random
+
+def instructions():
+  """This function gives the user instructions on how to play Magnet Monopoly"""
+  print("Here are the rules to Magnet Monopoly! INSERT RULES HERE.")
+  print("")
+  return 
+
+instructions()
+
+min = 1
+max = 6
+
+class board_pieces:
+
+  def __init__(self, name, color, purchase_price, house_price, rent_price, house_1price, house_2price, house3_price, house4_price, hotel_price, location):
+    self.name = name
+    self.color = color
+    self.purchase_price = purchase_price 
+    self.house_price = house_price
+    self.rent_price = rent_price
+    self.house_1price = house_1price
+    self.house_2price = house_2price
+    self.house_3price = house3_price
+    self.house_4price = house4_price
+    self.hotel_price= hotel_price
+    self.location = location
+
+Go= board_pieces('Go', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A',0)
+Pinto= board_pieces('Pinto', 'purple', 60,50, 2, 10,30,90,160,250,1)
+Chance1= board_pieces('Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 2)
+Arnold= board_pieces('Arnold','purple',60,50,4,20,60,180,320,450, 3)
+Tax1= board_pieces('Tax', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 4)
+MakerSpaceStation= board_pieces('MakerSpaceStation', 'black', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 5)
+Raite= board_pieces('Raite', 'light blue', 100,50,6,30,90,270,400,550,6)
+Chance2= board_pieces('Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 7)
+Gupta= board_pieces('Gupta','lightblue',100,50,6,30,90,270,400,550,8)
+Wickerhauser= board_pieces('Wickerhauser','light blue',120,50,8,40,100,300,450,600,9)
+LOP= board_pieces('Jail', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 10)
+Tennabaum= board_pieces("Tennabaum",'pink',140, 100, 10,50, 150, 450, 25, 750, 11)
+Chance3= board_pieces('Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 12)
+Nowakowski= board_pieces("Nowakowski",'pink',140, 100, 10,50, 150, 450, 25, 750, 13)
+Mcmenamin= board_pieces('Mcmenamin','pink',160, 100, 12,60, 180, 500, 700, 900, 15)
+Gym= board_pieces("GymStation", 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 16)
+M_O= board_pieces('Mansfield Office' ,'orange',180, 100, 14, 70, 200, 550, 750, 950, 17)
+Chance4= board_pieces('Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 18)
+Valverde= board_pieces("Valverde",'orange',180,100, 14, 70, 200, 550, 750, 950, 19)
+Meijia= board_pieces("Meijia",'orange',200, 100, 16, 80,220, 600, 800, 1000, 20)
+Free_Parking= board_pieces('Free_Parking','N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 21)
+Sanservino= board_pieces("Sanservino", "yellow", 260, 150, 22, 110, 330, 800, 975, 1150, 22)
+Chance5= board_pieces('Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 23)
+Valley= board_pieces("Valley",'yellow', 260, 150, 22, 110, 330, 800, 975, 1150, 24)
+Draesel= board_pieces("Draesel","yellow", 280, 150, 24, 120, 360, 850, 1025, 1200, 25)
+TrainStation= board_pieces('TrainStation', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 26)
+Weisser= board_pieces("Weisser","Green",300, 200, 26, 130, 390, 900, 1100, 1275, 27)
+Fang= board_pieces("Fang", "green",300, 200, 26, 130, 390, 900, 1100, 1275, 28)
+Chance6= board_pieces('Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 29)
+Gerstein= board_pieces("Gerstein","green",320, 200, 28, 150, 450, 1000, 1200, 1400, 30)
+GoToLOP= board_pieces("Go to LOP",'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 31 )
+OConnor= board_pieces('OConnor', "Red", 220, 150, 18, 90, 250, 700, 875, 1050, 32)
+Liu= board_pieces("Liu","red",220, 150, 18, 90, 250, 700, 875, 1050, 33)
+Chance7=  board_pieces('Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 34)
+Moskowitz= board_pieces("Moskowitz", "red",240, 150, 20,100,300,750,925, 1100, 35)
+TrainStation1= board_pieces('TrainStation', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 36)
+Chance8=  board_pieces('Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 37)
+RafOffice= board_pieces("Rafolowski's Office","Dark Blue",350, 200, 35, 175, 500, 1100, 1300, 1500, 38)
+Tax2= board_pieces('Tax', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 39)
+Guidance= board_pieces("guidance","dark blue",400,200, 50, 200, 600, 1400, 1700,2000, 40 )
+
+
+class Player:
+  def __init__(self, location, money):
+    self.location = location 
+    self.money = money
+
+
+board= [Go.name, Pinto.name, Chance1.name, Arnold.name, Tax1.name, MakerSpaceStation.name, Raite.name, Chance2.name, Gupta.name, Wickerhauser.name, LOP.name, Tennabaum.name, Chance3.name, Nowakowski.name, Mcmenamin.name, Gym.name, M_O.name, Chance4.name, Valverde.name, Meijia.name, Free_Parking.name, Sanservino.name, Chance5.name, Valley.name, Draesel.name, TrainStation.name, Weisser.name, Fang.name, Chance6.name, Gerstein.name, GoToLOP.name, OConnor.name, Liu.name, Chance7.name, Moskowitz.name, TrainStation1.name, Chance8.name, RafOffice.name, Tax2.name, Guidance.name]
+
+player1= input("Player one, input your name. You will go first. ")
+player1= Player(0, 500)
+
+print(f"You are starting at {board[player1.location]}") 
+
+player2= input("Player two, input your name. ") 
+player2= Player(0,500)
+
+print(f"You are starting at {board[player2.location]}") 
+
+
+dice_answer= input("Are you ready to roll the dice? Type yes or no!").lower()
+
+while dice_answer == "yes":
+  print(f"You rolled a {random.randint(min,max)}")
+  #insert the whole game code Here
+  print(f"player one is at {board[player1.location]}")
+  print(f"player two is at {board[player2.location]}")
+  dice_answer= input("Are you ready to roll the dice? Type yes or no!").lower()
+
