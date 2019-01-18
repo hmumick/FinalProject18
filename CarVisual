@@ -1,0 +1,46 @@
+import pygame
+
+pygame.init()
+
+display_width= 880
+display_height= 600
+
+black= (0,0,0)
+white= (255,255,255)
+red= (255,0,0)
+yellow= (255,209,0)
+green= (0,255,0)
+darkblue= (0,0,255)
+lightblue= (0,255,255)
+purple= (189,0,255)
+lightgreen= (0,255,158)
+orange= (255,162,0)
+brown= (129,90,6)
+
+gameDisplay = pygame.display.set_mode((display_width,display_height))
+pygame.display.set_caption('Magnet Monopoly')
+
+BackgroundIMG = pygame.image.load("/Users/harvinsmumick/Downloads/FinalProject18-master/monopolyboard.png").convert()
+gameDisplay.blit(BackgroundIMG, [0,0])
+
+
+hatIMG = pygame.image.load("/Users/harvinsmumick/Downloads/FinalProject18-master/hat.png")
+gameDisplay.blit(hatIMG, (780,530))
+
+carIMG = pygame.image.load("/Users/harvinsmumick/Downloads/FinalProject18-master/car.png")
+gameDisplay.blit(carIMG, (740, 465))
+
+clock= pygame.time.Clock
+crashed = False
+
+while not crashed:
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            crashed = True
+
+        print(event)
+    
+    pygame.display.update()
+    #clock.tick(60)
+pygame.quit()
