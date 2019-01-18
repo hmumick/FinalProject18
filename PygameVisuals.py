@@ -20,11 +20,11 @@ brown= (129,90,6)
 gameDisplay = pygame.display.set_mode((display_width,display_height))
 pygame.display.set_caption('Magnet Monopoly')
 
-BackgroundIMG = pygame.image.load("FinalProject18-master\monopolyboard.png").convert()
+BackgroundIMG = pygame.image.load("monopolyboard.png")
 gameDisplay.blit(BackgroundIMG, [0,0])
 
-hatIMG = pygame.image.load("FinalProject18-master\hat.png")
-carIMG = pygame.image.load("FinalProject18-master\car.png")
+hatIMG = pygame.image.load("hat.png")
+carIMG = pygame.image.load("car.png")
 
 Start = (750, 510)
 gameDisplay.blit(hatIMG, (Start))
@@ -66,8 +66,13 @@ TenanbaumCar = (0, 440)
 Chance3Car = (0, 380)
 #gameDisplay.blit(carIMG, (Chance3Car))
 
-#Side 2 = [TenebaumCar, Chance3Car, NowakoskiCar, McMenaminCar, GymStationCar, MansfieldCar]
-for
+NowakoskiCar = (0, 320)
+#gameDisplay.blit(carIMG, (NowakoskiCar))
+
+McMenaminCar = (0, 260)
+#gameDisplay.blit(carIMG, (McMenaminCar))
+
+
 
 clock= pygame.time.Clock
 crashed = False
