@@ -63,14 +63,29 @@ LOPCar = (0, 510)
 TenanbaumCar = (0, 440)
 #gameDisplay.blit(carIMG, (TenanbaumCar))
 
-Chance3Car = (0, 380)
+Chance3Car = (0, 390)
 #gameDisplay.blit(carIMG, (Chance3Car))
 
-NowakoskiCar = (0, 320)
+NowakoskiCar = (0, 340)
 #gameDisplay.blit(carIMG, (NowakoskiCar))
 
-McMenaminCar = (0, 260)
+McMenaminCar = (0, 290)
 #gameDisplay.blit(carIMG, (McMenaminCar))
+
+GymCar = (0, 240)
+#gameDisplay.blit(carIMG, (GymCar))
+
+MansfieldCar = (0,190)
+#gameDisplay.blit(carIMG, (MansfieldCar))
+
+Chance4Car = (0,140)
+#gameDisplay.blit(carIMG, (Chance4Car))
+
+ValverdeCar = (0,90)
+#gameDisplay.blit(carIMG, (ValverdeCar))
+
+MejiaCar = (0,40)
+gameDisplay.blit(carIMG, (MejiaCar))
 
 
 
