@@ -85,7 +85,68 @@ ValverdeCar = (0,90)
 #gameDisplay.blit(carIMG, (ValverdeCar))
 
 MejiaCar = (0,40)
-gameDisplay.blit(carIMG, (MejiaCar))
+#gameDisplay.blit(carIMG, (MejiaCar))
+
+FreeParkingCar = (0,0)
+#gameDisplay.blit(carIMG, (FreeParkingCar))
+
+SansiCar = (90,0)
+#gameDisplay.blit(carIMG, (SansiCar))
+
+ValleyCar = (160,0)
+#gameDisplay.blit(carIMG, (ValleyCar))
+
+Chance5Car = (230, 0)
+#gameDisplay.blit(carIMG, (Chance5Car))
+
+DraeselCar = (300,0)
+#gameDisplay.blit(carIMG, (DraeselCar))
+
+LabCar = (370,0)
+#gameDisplay.blit(carIMG, (LabCar))
+
+WeisserCar = (440, 0)
+#gameDisplay.blit(carIMG, (WeisserCar))
+
+FangCar = (510,0)
+#gameDisplay.blit(carIMG, (FangCar))
+
+Chance6Car = (580,0)
+#gameDisplay.blit(carIMG, (Chance6Car))
+
+GersteinCar = (650,0)
+#gameDisplay.blit(carIMG, (GersteinCar))
+
+GoToLopCar = (750, 0)
+#gameDisplay.blit(carIMG, (GoToLOPCar))
+
+OConnorCar = (750, 40)
+#gameDisplay.blit(carIMG, (OConnorCar))
+
+LiuCar = (750, 90)
+#gameDisplay.blit(carIMG, (LiuCar))
+
+Chance7Car = (750, 140)
+#gameDisplay.blit(carIMG, (Chance7Car))
+
+MoskowitzCar = (750, 190)
+#gameDisplay.blit(carIMG, (MoskowitzCar))
+
+AuditStationCar = (750, 240)
+#gameDisplay.blit(carIMG,(AuditStationCar))
+
+Chance8Car = (750, 290)
+#gameDisplay.blit(carIMG, (Chance8Car))
+
+GuidanceCar = (750, 340)
+#gameDisplay.blit(carIMG, (GuidanceCar))
+
+Tax2Car = (750, 390)
+#gameDisplay.blit(carIMG, (Tax2Car))
+
+RafalowskiCar = (750, 440)
+gameDisplay.blit(carIMG, (RafalowskiCar))
+
 
 
 
