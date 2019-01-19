@@ -26,38 +26,38 @@ gameDisplay.blit(BackgroundIMG, [0,0])
 hatIMG = pygame.image.load("hat.png")
 carIMG = pygame.image.load("car.png")
 
-Start = (750, 510)
+Start = (750, 520)
 gameDisplay.blit(hatIMG, (Start))
 gameDisplay.blit(carIMG, (Start))
 
-PintoCar = (650, 510)
+PintoCar = (650, 520)
 #gameDisplay.blit(carIMG, (PintoCar))
 
-Chance1Car = (580, 510)
+Chance1Car = (580, 520)
 #gameDisplay.blit(carIMG, (Chance1Car))
 
-ArnoldCar = (510, 510)
+ArnoldCar = (510, 520)
 #gameDisplay.blit(carIMG, (ArnoldCar))
 
-Tax1Car = (440, 510)
+Tax1Car = (440, 520)
 #gameDisplay.blit(carIMG, (Tax1Car))
 
-MakerStationCar = (370, 510)
+MakerStationCar = (370, 520)
 #gameDisplay.blit(carIMG, (MakerStationCar))
 
-RaiteCar = (300, 510)
+RaiteCar = (300, 520)
 #gameDisplay.blit(carIMG, (RaiteCar))
 
-Chance2Car = (230, 510)
+Chance2Car = (230, 520)
 #gameDisplay.blit(carIMG, (Chance2Car))
 
-GuptaCar = (160, 510)
+GuptaCar = (160, 520)
 #gameDisplay.blit(carIMG, (GuptaCar))
 
-WickCar = (90, 510)
+WickCar = (90, 520)
 #gameDisplay.blit(carIMG, (WickCar))
 
-LOPCar = (0, 510)
+LOPCar = (0, 520)
 #gameDisplay.blit(carIMG, (LOPCar))
 
 TenanbaumCar = (0, 440)
@@ -145,9 +145,124 @@ Tax2Car = (750, 390)
 #gameDisplay.blit(carIMG, (Tax2Car))
 
 RafalowskiCar = (750, 440)
-gameDisplay.blit(carIMG, (RafalowskiCar))
+#gameDisplay.blit(carIMG, (RafalowskiCar))
 
+PintoHat = (670, 520)
+#gameDisplay.blit(hatIMG, (PintoHat))
 
+Chance1Hat = (600, 520)
+#gameDisplay.blit(hatIMG, (Chance1Hat))
+
+ArnoldHat = (530, 520)
+#gameDisplay.blit(hatIMG, (ArnoldHat))
+
+Tax1Hat = (460, 520)
+#gameDisplay.blit(hatIMG, (Tax1Hat))
+
+MakerStationHat = (390, 520)
+#gameDisplay.blit(hatIMG, (MakerStationHat))
+
+RaiteHat = (320, 520)
+#gameDisplay.blit(hatIMG, (Chance1Hat))
+
+Chance2Hat = (250, 520)
+#gameDisplay.blit(hatIMG, (Chance2Hat))
+
+GuptaHat = (180, 520)
+#gameDisplay.blit(hatIMG, (GuptaHat))
+
+WickHat = (110, 520)
+#gameDisplay.blit(hatIMG, (WickHat))
+
+LOPHat = (0, 520)
+#gameDisplay.blit(hatIMG, (LOPHat))
+
+TenanbaumHat = (0, 455)
+gameDisplay.blit(hatIMG, (TenanbaumHat))
+
+Chance3Hat = (0, 410)
+#gameDisplay.blit(hatIMG, (Chance3Hat))
+
+NowakoskiHat = (0, 365)
+#gameDisplay.blit(hatIMG, (NowakoskiHat))
+
+McMenaminHat = (0, 320)
+#gameDisplay.blit(hatIMG, (McMenaminHat))
+
+GymStationHat = (0,275)
+#gameDisplay.blit(hatIMG, (GymStationHat))
+
+MansfieldHat = (0, 225)
+#gameDisplay.blit(hatIMG, (MansfieldHat))
+
+Chance4Hat = (0, 180)
+#gameDisplay.blit(hatIMG, (Chance4Hat))
+
+ValverdeHat = (0,135)
+#gameDisplay.blit(hatIMG, (ValverdeHat))
+
+MejiaHat = (0, 90)
+#gameDisplay.blit(hatIMG, (MejiaHat))
+
+FreeParkingHat = (0, 0)
+#gameDisplay.blit(hatIMG, (FreeParkingHat))
+
+SansiHat = (110, 0)
+#gameDisplay.blit(hatIMG, (SansiHat))
+
+ValleyHat = (180, 0)
+#gameDisplay.blit(hatIMG, (ValleyHat))
+
+Chance5Hat = (250, 0)
+#gameDisplay.blit(hatIMG, (Chance5Hat))
+
+DraeselHat = (320, 0)
+#gameDisplay.blit(hatIMG, (DraeselHat))
+
+LabHat = (390, 0)
+#gameDisplay.blit(hatIMG, (LabHat))
+
+WeisserHat = (460, 0)
+#gameDisplay.blit(hatIMG, (WeisserHat))
+
+FangHat = (530, 0)
+#gameDisplay.blit(hatIMG, (FangHat))
+
+Chance6Hat = (600,0)
+#gameDisplay.blit(hatIMG, (Chance6Hat))
+
+GersteinHat = (670, 0)
+#gameDisplay.blit(hatIMG, (GersteinHat))
+
+GoToLOPHat = (750, 0)
+#gameDisplay.blit(hatIMG, (GoToLOPHat))
+
+OConnorHat = (750, 90)
+#gameDisplay.blit(hatIMG, (OConnorHat))
+
+LiuHat = (750, 135)
+#gameDisplay.blit(hatIMG, (LiuHat))
+
+Chance7Hat = (750, 180)
+#gameDisplay.blit(hatIMG, (Chance7Hat))
+
+MoskowitzHat = (750, 225)
+#gameDisplay.blit(hatIMG, (MoskowitzHat))
+
+AuditStationHat = (750, 275)
+#gameDisplay.blit(hatIMG, (AuditStationHat))
+
+Chance8Hat = (750, 320)
+#gameDisplay.blit(hatIMG, (Chance8Hat))
+
+GuidanceHat = (750, 365)
+#gameDisplay.blit(hatIMG, (Chance3Hat))
+
+Tax2Hat = (750, 410)
+#gameDisplay.blit(hatIMG, (Tax2Hat))
+
+RafalowskiHat = (750, 455)
+#gameDisplay.blit(hatIMG, (RafalowskiHat))
 
 
 clock= pygame.time.Clock
