@@ -1,14 +1,15 @@
-import random
+import random #import the random function in order to randomly select a number, which is used later on in the function
 
+#this function gives the instructions on how to play Monopoly
 def instructions():
   """This function gives the user instructions on how to play Magnet Monopoly"""
   print("Here are the rules to Magnet Monopoly! INSERT RULES HERE.")
   print("")
   return 
 
-instructions()
+instructions() #this calls on the instructions function
 
-
+#this is a class that has all of the board game 
 class board_pieces:
 
   def __init__(self, name, owner, color, purchase_price, house_price, rent_price, house_1price, house_2price, house3_price, house4_price, hotel_price, location, house_owner, house_2count, house_count, hotel_owner,stationcount1, stationcount2):
@@ -122,11 +123,11 @@ while player1.money > 0 and player2.money > 0:
     randomchance = random.choice(chances)
     result = int(randomchance[0])
     player1.money = result
-    print(f"{player1.name} now has {player1.money} dollars. ")
+    print(f"{player1.name} now has {player1.money} dollars because they landed on a chance spot. ")
 
   elif board[player1.location].name == 'GoToLOP':
-    board[player1.location] = board.index(LOP)
-    print(f"Oh no, you are at {board[player1.location]} because you landed on Go To LOP!")
+    player1.location = board.index(LOP)
+    print(f"Oh no, you are at LOP because you landed on Go To LOP!")
 
   elif board[player1.location].owner == 'station':
     answerS= input(f"Would you like to buy this property for {board[player1.location].purchase_price}? ").lower()
@@ -153,8 +154,6 @@ while player1.money > 0 and player2.money > 0:
   elif board[player1.location].owner == player2.name and player2.station == 4 and board[player1.location].stationcount2 == 1:
     player1.money= player1.money - 100
     print(f"{player1.name} has to pay 100 dollars and now has {player1.money} dollars because they landed on a station owned by player 2 (who owns four stations).")
-
-
 
   elif board[player1.location].owner == 'Tax':
     player1.money= player1.money - 50
@@ -191,16 +190,16 @@ while player1.money > 0 and player2.money > 0:
 
   elif board[player1.location].owner == player2.name:
     player1.money= player1.money - board[player1.location].rent_price
-    print(f"{player1.name} now has {player1.money} dollars because they landed on Player Two's Property. ")
+    print(f"{player1.name} now has {player1.money} dollars because they landed on Player Two's Property at {board[player1.location].name}. ")
 
   elif board[player1.location].owner == player1.name:
     print("This location is your property, so you don't have to pay money!")
   
-  if color1.count('purple')== 2 and board[player1.location].color=='purple' and player1.purple == 2:
+  if color1.count('purple')== 2 and board[player1.location].color=='purple':
     P_house_answer= input(f'Congrats, you have all of the purple properties, would you like to buy a house for {board[player1.location].house_price}? Type yes if you want to!').lower()
     if P_house_answer == 'yes':
       player1.money= player1.money- board[player1.location].house_price
-      print(f'You now have {player1.money} dollars.')
+      print(f'You now have {player1.money} dollars and a house at {board[player1.location].name}.')
       board[player1.location].house_owner = player1.name
       board[player1.location].house_count +=1
 
@@ -208,54 +207,55 @@ while player1.money > 0 and player2.money > 0:
     LB_house_answer= input(f'Congrats, you have all of the light blue properties, would you like to buy a house for {board[player1.location].house_price}? Type yes if you want to!').lower()
     if LB_house_answer == 'yes' and board[player1.location].color == 'light blue':
       player1.money= player1.money- board[player1.location].house_price
-      print(f'You now have {player1.money} dollars.')
+      print(f'You now have {player1.money} dollars and a house at {board[player1.location].name}.')
       board[player1.location].house_owner = player1.name
       board[player1.location].house_count +=1
   elif color1.count('pink') == 3 and board[player1.location].color == 'pink':
     P_house_answer= input(f'Congrats, you have all of the pink properties, would you like to buy a house for {board[player1.location].house_price}? Type yes if you want to!').lower()
     if P_house_answer == 'yes':
       player1.money= player1.money- board[player1.location].house_price
-      print(f'You now have {player1.money} dollars.')
+      print(f'You now have {player1.money} dollars and a house at {board[player1.location].name}.')
       board[player1.location].house_owner = player1.name
       board[player1.location].house_count +=1
   elif color1.count('orange') == 3 and board[player1.location].color == 'orange':
     O_house_answer= input(f'Congrats, you have all of the pink properties, would you like to buy a house for {board[player1.location].house_price}? Type yes if you want to!').lower()
     if O_house_answer == 'yes':
       player1.money= player1.money- board[player1.location].house_price
-      print(f'You now have {player1.money} dollars.')
+      print(f'You now have {player1.money} dollars and a house at {board[player1.location].name}.')
       board[player1.location].house_owner = player1.name
       board[player1.location].house_count +=1
   elif color1.count('red') == 3 and board[player1.location].color == 'red':
     R_house_answer= input(f'Congrats, you have all of the pink properties, would you like to buy a house for {board[player1.location].house_price}? Type yes if you want to!').lower()
     if R_house_answer == 'yes':
       player1.money= player1.money- board[player1.location].house_price
-      print(f'You now have {player1.money} dollars.')
+      print(f'You now have {player1.money} dollars and a house at {board[player1.location].name}.')
       board[player1.location].house_owner = player1.name
       board[player1.location].house_count +=1
   elif color1.count('yellow') == 3 and board[player1.location].color == 'yellow':
     Y_house_answer= input(f'Congrats, you have all of the pink properties, would you like to buy a house for {board[player1.location].house_price}? Type yes if you want to!').lower()
     if Y_house_answer == 'yes':
       player1.money= player1.money- board[player1.location].house_price
-      print(f'You now have {player1.money} dollars.')
+      print(f'You now have {player1.money} dollars and a house at {board[player1.location].name}.')
       board[player1.location].house_owner = player1.name
       board[player1.location].house_count +=1
   elif color1.count('green') == 3 and board[player1.location].color == 'green':
     G_house_answer= input(f'Congrats, you have all of the pink properties, would you like to buy a house for {board[player1.location].house_price}? Type yes if you want to!').lower()
     if G_house_answer == 'yes':
       player1.money= player1.money- board[player1.location].house_price
-      print(f'You now have {player1.money} dollars.')
+      print(f'You now have {player1.money} dollars and a house at {board[player1.location].name}.')
       board[player1.location].house_owner = player1.name
       board[player1.location].house_count +=1
   elif color1.count('dark blue') == 2 and board[player1.location].color == 'dark blue':
     DB_house_answer= input(f'Congrats, you have all of the dark blue properties, would you like to buy a house for {board[player1.location].house_price}? Type yes if you want to!').lower()
     if DB_house_answer == 'yes':
       player1.money= player1.money- board[player1.location].house_price
-      print(f'You now have {player1.money} dollars.')
+      print(f'You now have {player1.money} dollars and a house at {board[player1.location].name}.')
       board[player1.location].house_owner = player1.name
       board[player1.location].house_count +=1
-  elif board[player1.location].house_count >= 4:
+  elif board[player1.location].house_count == 4:
     hotel_answer= input("You have four houses at this location, would you like to buy a hotel here?").lower()
     if hotel_answer == 'yes':
+      board[player1.location].house_count +=1
       player1.money= player1.money- board[player1.location].house_price
       board[player1.location].hotel_owner == player1.name
       print(f"Congrats, you now own a hotel at {board[player1.location]} and you have {player1.money} dollars.")
@@ -281,7 +281,7 @@ while player1.money > 0 and player2.money > 0:
     randomchance2 = random.choice(chances2)
     result2 = int(randomchance2[0])
     player2.money = result2
-    print(f"{player2.name} now has {player2.money} dollars. ")
+    print(f"{player2.name} now has {player2.money} dollars because they landed on a chance spot. ")
 
   elif board[player2.location].owner == 'GoToLOP':
     player2.location = board.index(LOP)
@@ -348,7 +348,7 @@ while player1.money > 0 and player2.money > 0:
 
   elif board[player2.location].owner == player1.name:
     player2.money= player2.money - board[player2.location].rent_price
-    print(f"You landed on {player1.name}'s propery, so {player2.name} now has {player2.money} dollars. ")
+    print(f"You landed on {player1.name}'s propery at {board[player2.location].name}, so {player2.name} now has {player2.money} dollars. ")
 
 
   elif board[player2.location].owner == player2.name:
@@ -359,63 +359,68 @@ while player1.money > 0 and player2.money > 0:
     P2_house_answer= input(f'Congrats, you have all of the purple properties, would you like to buy a house for {board[player2.location].house_price}? Type yes if you want to!').lower()
     if P2_house_answer == 'yes':
       player2.money= player2.money- board[player2.location].house_price
-      print(f'You now have {player2.money} dollars.')
+      print(f'You now have {player2.money} dollars and a house at {board[player2.location].name}.')
       board[player2.location].house_owner = player2.name
       board[player2.location].house_2count +=1
   elif color2.count('light blue') == 3 and board[player2.location].color == 'light blue':
     LB2_house_answer= input(f'Congrats, you have all of the light blue properties, would you like to buy a house for {board[player2.location].house_price}? Type yes if you want to!').lower()
     if LB2_house_answer == 'yes' and board[player2.location].color == 'light blue':
       player2.money= player2.money- board[player2.location].house_price
-      print(f'You now have {player2.money} dollars.')
+      print(f'You now have {player2.money} dollars and a house at {board[player2.location].name}.')
       board[player2.location].house_owner = player2.name
       board[player2.location].house_2count +=1
   elif color2.count('pink') == 3 and board[player2.location].color == 'pink':
     P2_house_answer= input(f'Congrats, you have all of the pink properties, would you like to buy a house for {board[player2.location].house_price}? Type yes if you want to!').lower()
     if P2_house_answer == 'yes' :
       player2.money= player2.money- board[player2.location].house_price
-      print(f'You now have {player2.money} dollars.')
+      print(f'You now have {player2.money} dollars and a house at {board[player2.location].name}.')
       board[player2.location].house_owner = player2.name
       board[player2.location].house_2count +=1
   elif color2.count('orange') == 3 and board[player2.location].color == 'orange':
     O2_house_answer= input(f'Congrats, you have all of the pink properties, would you like to buy a house for {board[player2.location].house_price}? Type yes if you want to!').lower()
     if O2_house_answer == 'yes':
       player2.money= player2.money- board[player2.location].house_price
-      print(f'You now have {player2.money} dollars.')
+      print(f'You now have {player2.money} dollars and a house at {board[player2.location].name}.')
       board[player2.location].house_owner = player2.name
       board[player2.location].house_2count +=1
   elif color2.count('red') == 3 and board[player2.location].color == 'red':
     R2_house_answer= input(f'Congrats, you have all of the pink properties, would you like to buy a house for {board[player2.location].house_price}? Type yes if you want to!').lower()
     if R2_house_answer == 'yes':
       player2.money= player2.money- board[player2.location].house_price
-      print(f'You now have {player2.money} dollars.')
+      print(f'You now have {player2.money} dollars and a house at {board[player2.location].name}.')
       board[player2.location].house_owner = player2.name
       board[player2.location].house_2count +=1
   elif color2.count('yellow') == 3 and board[player2.location].color == 'yellow':
     Y2_house_answer= input(f'Congrats, you have all of the pink properties, would you like to buy a house for {board[player2.location].house_price}? Type yes if you want to!').lower()
     if Y2_house_answer == 'yes':
       player2.money= player2.money- board[player2.location].house_price
-      print(f'You now have {player2.money} dollars.')
+      print(f'You now have {player2.money} dollars and a house at {board[player2.location].name}.')
       board[player2.location].house_owner = player2.name
       board[player2.location].house_2count +=1
   elif color2.count('green') == 3 and board[player2.location].color == 'green':
     G2_house_answer= input(f'Congrats, you have all of the pink properties, would you like to buy a house for {board[player2.location].house_price}? Type yes if you want to!').lower()
     if G2_house_answer == 'yes':
       player2.money= player2.money- board[player2.location].house_price
-      print(f'You now have {player2.money} dollars.')
+      print(f'You now have {player2.money} dollars and a house at {board[player2.location].name}.')
       board[player2.location].house_owner = player2.name
       board[player2.location].house_2count +=1
   elif color2.count('dark blue') == 2 and board[player2.location].color == 'dark blue':
     DB2_house_answer= input(f'Congrats, you have all of the pink properties, would you like to buy a house for {board[player2.location].house_price}? Type yes if you want to!').lower()
     if DB2_house_answer == 'yes':
       player2.money= player2.money- board[player2.location].house_price
-      print(f'You now have {player2.money} dollars.')
+      print(f'You now have {player2.money} dollars and a house at {board[player2.location].name}.')
       board[player2.location].house_owner = player2.name
       board[player2.location].house_2count +=1
-  elif board[player2.location].house_2count >= 4:
+  elif board[player2.location].house_2count == 4:
     hotel2_answer= input("You have four houses at this location, would you like to buy a hotel here?").lower()
     if hotel2_answer == 'yes':
+      board[player2.location].house_count +=1
       player2.money= player2.money- board[player2.location].house_price
       board[player2.location].hotel_owner == player2.name
-      print(f"Congrats, you now own a hotel at {board[player2.location]} and you have {player2.money} dollars.")
+      print(f"Congrats, you now own a hotel at {board[player2.location].name} and you have {player2.money} dollars.")
 
-#LINE 415 HAS A PROBLEM and 256
+if player1.money > 0:
+  print(f"{player2name} ran out of money, so {player1name} won! Congratulations on winning MAGNET MONOPOLY! ")
+
+elif player2.money > 0 :
+  print(f"{player1name} ran out of money, so {player2name} won! Congratulations on winning MAGNET MONOPOLY! ")
