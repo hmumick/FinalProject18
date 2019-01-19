@@ -178,7 +178,7 @@ LOPHat = (0, 520)
 #gameDisplay.blit(hatIMG, (LOPHat))
 
 TenanbaumHat = (0, 455)
-gameDisplay.blit(hatIMG, (TenanbaumHat))
+#gameDisplay.blit(hatIMG, (TenanbaumHat))
 
 Chance3Hat = (0, 410)
 #gameDisplay.blit(hatIMG, (Chance3Hat))
@@ -263,7 +263,6 @@ Tax2Hat = (750, 410)
 
 RafalowskiHat = (750, 455)
 #gameDisplay.blit(hatIMG, (RafalowskiHat))
-
 
 clock= pygame.time.Clock
 crashed = False
