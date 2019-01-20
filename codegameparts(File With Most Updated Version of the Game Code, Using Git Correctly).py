@@ -1,4 +1,17 @@
 import random #import the random function in order to randomly select a number, which is used later on in the function
+import pygame
+
+pygame.init()
+display_width= 880
+display_height= 600
+gameDisplay = pygame.display.set_mode((display_width,display_height))
+pygame.display.set_caption('Magnet Monopoly')
+
+BackgroundIMG = pygame.image.load("monopolyboard.png")
+gameDisplay.blit(BackgroundIMG, [0,0])
+
+hatIMG = pygame.image.load("hat.png")
+carIMG = pygame.image.load("car.png")
 
 #this function gives the instructions on how to play Monopoly
 def instructions():
@@ -12,7 +25,7 @@ instructions() #this calls on the instructions function
 #this is a class that has all of the board game 
 class board_pieces:
 
-  def __init__(self, name, owner, color, purchase_price, house_price, rent_price, house_1price, house_2price, house3_price, house4_price, hotel_price, location, house_owner, house_2count, house_count, hotel_owner,stationcount1, stationcount2):
+  def __init__(self, name, owner, color, purchase_price, house_price, rent_price, house_1price, house_2price, house3_price, house4_price, hotel_price, location, house_owner, house_2count, house_count, hotel_owner,stationcount1, stationcount2, car_coodinates, hat_coordinates):
     self.name = name
     self.owner= owner
     self.color = color
@@ -31,48 +44,50 @@ class board_pieces:
     self.hotel_owner = hotel_owner
     self.stationcount1 = stationcount1
     self.stationcount2 = stationcount2
+    self.car_coordinates = car_coodinates
+    self.hat_coordinates = hat_coordinates
 
 
-Go= board_pieces('Go', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A',0, 0 , 0, 0 , 'none',0,0)
-Pinto= board_pieces('Pinto', 'none', 'purple', 60,50, 2, 10,30,90,160,250,1, 'none', 0 , 0, 'none',0,0)
-Chance1= board_pieces('Chance', 'Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 2, 0 , 0 ,0, 'none',0,0)
-Arnold= board_pieces('Arnold', 'none', 'purple',60,50,4,20,60,180,320,450, 3, 'none', 0 , 0, 'none',0,0)
-Tax1= board_pieces('Tax', 'Tax', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 4, 'none',0 ,0 , 'none',0,0)
-MakerSpaceStation= board_pieces('MakerSpace Station', "station", 'black', 200, 25 , 25, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 5, 'none', 0 , 0, 'none',0,0)
-Raite= board_pieces('Raite', 'none', 'light blue', 100,50,6,30,90,270,400,550,6, 'none', 0 , 0, 'none',0,0)
-Chance2= board_pieces('Chance', 'Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 7, 'none', 0 ,0 , 'none',0,0)
-Gupta= board_pieces('Gupta', 'none', 'light blue',100,50,6,30,90,270,400,550,8, 'none',0 , 0, 'none',0,0)
-Wickerhauser= board_pieces('Wickerhauser', 'none', 'light blue',120,50,8,40,100,300,450,600,9, 'none',0 , 0, 'none',0,0)
-LOP= board_pieces('LOP', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 10, 'none', 0 ,0 , 'none',0,0)
-Tennabaum= board_pieces("Tennabaum", 'none', 'pink',140, 100, 10,50, 150, 450, 25, 750, 11, 'none',0 , 0, 'none',0,0)
-Chance3= board_pieces('Chance', 'Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 12, 'none',0 , 0 , 'none',0,0)
-Nowakowski= board_pieces("Nowakowski", 'none', 'pink',140, 100, 10,50, 150, 450, 25, 750, 13, 'none',0 , 0, 'none',0,0)
-Mcmenamin= board_pieces('Mcmenamin', 'none', 'pink',160, 100, 12,60, 180, 500, 700, 900, 15, 'none',0 , 0, 'none',0,0)
-GymStation= board_pieces("Gym Station", "station", 'N/A', 200, 25, 25, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 16, 'none', 0 , 0, 'none',0,0)
-M_O= board_pieces('Mansfield Office' , 'none', 'orange',180, 100, 14, 70, 200, 550, 750, 950, 17, 'none',0 , 0, 'none',0,0)
-Chance4= board_pieces('Chance', 'Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 18, 'none',0 , 0 , 'none', 0,0)
-Valverde= board_pieces("Valverde", 'none', 'orange',180,100, 14, 70, 200, 550, 750, 950, 19, 'none', 0 , 0, 'none',0,0)
-Mejia= board_pieces("Mejia", 'none', 'orange',200, 100, 16, 80,220, 600, 800, 1000, 20, 'none', 0 ,0, 'none',0,0)
-Free_Parking= board_pieces('Free_Parking', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 21, 'none', 0 ,0 , 'none',0,0)
-Sanservino= board_pieces("Sanservino", 'none', "red", 260, 150, 22, 110, 330, 800, 975, 1150, 22, 'none',0 , 0, 'none',0,0)
-Valley= board_pieces("Valley", 'none', 'red', 260, 150, 22, 110, 330, 800, 975, 1150, 23, 'none',0 , 0, 'none',0,0)
-Chance5= board_pieces('Chance', 'Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 24, 'none',0 , 0 , 'none',0,0)
-Draesel= board_pieces("Draesel", 'none', "red", 280, 150, 24, 120, 360, 850, 1025, 1200, 25, 'none', 0 ,0, 'none',0,0)
-LabStation= board_pieces('Lab Station', 'station', 'N/A', 200, 25 , 25, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 26, 'none', 0 ,0, 'none',0,0)
-Weisser= board_pieces("Weisser", 'none', "yellow",300, 200, 26, 130, 390, 900, 1100, 1275, 27, 'none', 0 ,0, 'none',0,0)
-Fang= board_pieces("Fang", 'none', "yellow",300, 200, 26, 130, 390, 900, 1100, 1275, 28, 'none', 0 , 0, 'none',0,0)
-Chance6= board_pieces('Chance', 'Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 29, 'none', 0 , 0, 'none',0,0)
-Gerstein= board_pieces("Gerstein", 'yellow', "green",320, 200, 28, 150, 450, 1000, 1200, 1400, 30, 'none', 0 , 0, 'none',0,0)
-GoToLOP= board_pieces("GoToLOP", 'GoToLOP', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 31, 'none', 0 ,0 , 'none',0,0)
-OConnor= board_pieces('OConnor', 'none', "green", 220, 150, 18, 90, 250, 700, 875, 1050, 32, 'none',0 , 0, 'none',0,0)
-Liu= board_pieces("Liu", 'none', "green",220, 150, 18, 90, 250, 700, 875, 1050, 33, 'none',0 , 0, 'none',0,0)
-Chance7=  board_pieces('Chance', 'Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 34, 'none', 0 ,0 , 'none',0,0)
-Moskowitz= board_pieces("Moskowitz", 'none', "green",240, 150, 20,100,300,750,925, 1100, 35, 'none',0 , 0, 'none',0,0)
-AuditoriumStation= board_pieces('Auditorium Station', "station", 'N/A', 200, 25 , 25, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 36, 'none', 0 ,0, 'none',0,0)
-Chance8=  board_pieces('Chance', 'Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 37, 'none', 0 ,0 , 'none',0,0)
-RafOffice= board_pieces("Rafolowski's Office", 'none', "dark blue",350, 200, 35, 175, 500, 1100, 1300, 1500, 38, 'none',0 , 0, 'none',0,0)
-Tax2= board_pieces('Tax', 'Tax', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 39, 'none', 0 ,0 , 'none',0,0)
-Guidance= board_pieces("guidance", 'none', "dark blue",400,200, 50, 200, 600, 1400, 1700, 2000, 40, 'none', 0 , 0, 'none',0,0)
+Go= board_pieces('Go', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A',0, 0 , 0, 0 , 'none',0,0,(750,520), (750,520))
+Pinto= board_pieces('Pinto', 'none', 'purple', 60,50, 2, 10,30,90,160,250,1, 'none', 0 , 0, 'none',0,0,(650, 520), (670, 520))
+Chance1= board_pieces('Chance', 'Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 2, 0 , 0 ,0, 'none',0 ,0, (580, 520), (600, 520))
+Arnold= board_pieces('Arnold', 'none', 'purple',60,50,4,20,60,180,320,450, 3, 'none', 0 , 0, 'none',0,0, (510, 520), (530, 520))
+Tax1= board_pieces('Tax', 'Tax', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 4, 'none',0 ,0 , 'none',0,0, (440, 520), (460, 520))
+MakerSpaceStation= board_pieces('MakerSpace Station', "station", 'black', 200, 25 , 25, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 5, 'none', 0 , 0, 'none',0,0, (370, 520), (390, 520))
+Raite= board_pieces('Raite', 'none', 'light blue', 100,50,6,30,90,270,400,550,6, 'none', 0 , 0, 'none',0,0, (300, 520), (320, 520))
+Chance2= board_pieces('Chance', 'Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 7, 'none', 0 ,0 , 'none',0,0, (230, 520), (250, 520))
+Gupta= board_pieces('Gupta', 'none', 'light blue',100,50,6,30,90,270,400,550,8, 'none',0 , 0, 'none',0,0, (160, 520), (180, 520))
+Wickerhauser= board_pieces('Wickerhauser', 'none', 'light blue',120,50,8,40,100,300,450,600,9, 'none',0 , 0, 'none',0,0, (90, 520),(110, 520))
+LOP= board_pieces('LOP', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 10, 'none', 0 ,0 , 'none',0,0, (0, 520),(0, 520))
+Tenanbaum= board_pieces("Tenanbaum", 'none', 'pink',140, 100, 10,50, 150, 450, 25, 750, 11, 'none',0 , 0, 'none',0,0, (0, 440), (0, 455))
+Chance3= board_pieces('Chance', 'Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 12, 'none',0 , 0 , 'none',0,0, (0, 390), (0,410))
+Nowakowski= board_pieces("Nowakowski", 'none', 'pink',140, 100, 10,50, 150, 450, 25, 750, 13, 'none',0 , 0, 'none',0,0, (0, 340), (0, 365))
+Mcmenamin= board_pieces('Mcmenamin', 'none', 'pink',160, 100, 12,60, 180, 500, 700, 900, 15, 'none',0 , 0, 'none',0,0, (0, 290), (0,320))
+GymStation= board_pieces("Gym Station", "station", 'N/A', 200, 25, 25, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 16, 'none', 0 , 0, 'none',0,0, (0, 240), (0,275))
+M_O= board_pieces('Mansfield Office' , 'none', 'orange',180, 100, 14, 70, 200, 550, 750, 950, 17, 'none',0 , 0, 'none',0,0, (0,190), (0, 225))
+Chance4= board_pieces('Chance', 'Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 18, 'none',0 , 0 , 'none', 0,0, (0,140), (0, 180))
+Valverde= board_pieces("Valverde", 'none', 'orange',180,100, 14, 70, 200, 550, 750, 950, 19, 'none', 0 , 0, 'none',0,0, (0,90), (0,135))
+Mejia= board_pieces("Mejia", 'none', 'orange',200, 100, 16, 80,220, 600, 800, 1000, 20, 'none', 0 ,0, 'none',0,0, (0,40), (0, 90))
+Free_Parking= board_pieces('Free_Parking', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 21, 'none', 0 ,0 , 'none',0,0, (0,0), (0, 0))
+Sanservino= board_pieces("Sanservino", 'none', "red", 260, 150, 22, 110, 330, 800, 975, 1150, 22, 'none',0 , 0, 'none',0,0, (90,0), (110, 0))
+Valley= board_pieces("Valley", 'none', 'red', 260, 150, 22, 110, 330, 800, 975, 1150, 23, 'none',0 , 0, 'none',0,0, (160,0), (180, 0))
+Chance5= board_pieces('Chance', 'Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 24, 'none',0 , 0 , 'none',0,0, (230, 0), (250, 0))
+Draesel= board_pieces("Draesel", 'none', "red", 280, 150, 24, 120, 360, 850, 1025, 1200, 25, 'none', 0 ,0, 'none',0,0, (300,0), (320, 0))
+LabStation= board_pieces('Lab Station', 'station', 'N/A', 200, 25 , 25, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 26, 'none', 0 ,0, 'none',0,0, (370,0), (390, 0))
+Weisser= board_pieces("Weisser", 'none', "yellow",300, 200, 26, 130, 390, 900, 1100, 1275, 27, 'none', 0 ,0, 'none',0,0, (440,0), (460,0))
+Fang= board_pieces("Fang", 'none', "yellow",300, 200, 26, 130, 390, 900, 1100, 1275, 28, 'none', 0 , 0, 'none',0,0, (510,0), (530,0))
+Chance6= board_pieces('Chance', 'Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 29, 'none', 0 , 0, 'none',0,0, (580, 0), (600,0))
+Gerstein= board_pieces("Gerstein", 'none', "yellow",320, 200, 28, 150, 450, 1000, 1200, 1400, 30, 'none', 0 , 0, 'none',0,0, (650,0), (670,0))
+GoToLOP= board_pieces("GoToLOP", 'GoToLOP', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 31, 'none', 0 ,0 , 'none',0,0,(750, 0), (750, 0))
+OConnor= board_pieces('OConnor', 'none', "green", 220, 150, 18, 90, 250, 700, 875, 1050, 32, 'none',0 , 0, 'none',0,0, (750, 40), (750, 90))
+Liu= board_pieces("Liu", 'none', "green",220, 150, 18, 90, 250, 700, 875, 1050, 33, 'none',0 , 0, 'none',0,0, (750, 90), (750, 135))
+Chance7=  board_pieces('Chance', 'Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 34, 'none', 0 ,0 , 'none',0,0, (750, 140), (750, 180))
+Moskowitz= board_pieces("Moskowitz", 'none', "green",240, 150, 20,100,300,750,925, 1100, 35, 'none',0 , 0, 'none',0,0, (750, 190), (750, 225))
+AuditoriumStation= board_pieces('Auditorium Station', "station", 'N/A', 200, 25 , 25, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 36, 'none', 0 ,0, 'none',0,0, (750, 240), (750, 275))
+Chance8=  board_pieces('Chance', 'Chance', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 37, 'none', 0 ,0 , 'none',0,0, (750, 290), (750, 320))
+Guidance= board_pieces("guidance", 'none', "dark blue",400,200, 50, 200, 600, 1400, 1700, 2000, 38, 'none', 0 , 0, 'none',0,0, (750, 340), (750, 365))
+Tax2= board_pieces('Tax', 'Tax', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 39, 'none', 0 ,0 , 'none',0,0,(750, 390), (750, 410))
+RafOffice= board_pieces("Rafolowski's Office", 'none', "dark blue",350, 200, 35, 175, 500, 1100, 1300, 1500, 40, 'none',0 , 0, 'none',0,0, (750, 440), (750, 455))
 
 
 class Player:
@@ -83,7 +98,7 @@ class Player:
     self.station = station
 
 
-board= [Go, Pinto, Chance1, Arnold, Tax1, MakerSpaceStation, Raite, Chance2, Gupta, Wickerhauser, LOP, Tennabaum, Chance3, Nowakowski, Mcmenamin, GymStation, M_O, Chance4, Valverde, Mejia, Free_Parking, Sanservino, Chance5, Valley, Draesel, LabStation, Weisser, Fang, Chance6, Gerstein, GoToLOP, OConnor, Liu, Chance7, Moskowitz, AuditoriumStation, Chance8, RafOffice, Tax2, Guidance]
+board= [Go, Pinto, Chance1, Arnold, Tax1, MakerSpaceStation, Raite, Chance2, Gupta, Wickerhauser, LOP, Tenanbaum, Chance3, Nowakowski, Mcmenamin, GymStation, M_O, Chance4, Valverde, Mejia, Free_Parking, Sanservino, Chance5, Valley, Draesel, LabStation, Weisser, Fang, Chance6, Gerstein, GoToLOP, OConnor, Liu, Chance7, Moskowitz, AuditoriumStation, Chance8, RafOffice, Tax2, Guidance]
 
 player1name = input("Player one, input your name. You will go first. ")
 player1= Player(player1name, 0, 1500, 0)
@@ -108,9 +123,13 @@ while player1.money > 0 and player2.money > 0:
   print(f"{player1.name} rolled a {move}")
   player1.location = player1.location + move
 
+  if player1.location < 40:
+    gameDisplay.blit(carIMG, (board[player1.location].car_coordinates))
+
   if player1.location >= 40:
     player1.location = player1.location % 40
     player1.money= player1.money + 200
+    gameDisplay.blit(carIMG, (board[player1.location].car_coordinates))
     print(f"{player1.name} now has {player1.money} because they got 200 dollars for passing Go.")
   print(f"{player1.name} is at {board[player1.location].name}")
 
@@ -266,9 +285,12 @@ while player1.money > 0 and player2.money > 0:
   print(f"{player2.name} rolled a {move2}")
   player2.location = player2.location + move2
 
+  if player2.location < 40:
+    gameDisplay.blit(hatIMG, (board[player2.location].hat_coordinates))
   if player2.location >= 40:
     player2.location = player2.location % 40
     player2.money = player2.money + 200
+    gameDisplay.blit(carIMG, (board[player2.location].hat_coordinates))
     print(f"{player2.name} now has {player2.money} because they got 200 dollars for passing Go.")
   print(f"{player2.name} is at {board[player2.location].name}")
 
