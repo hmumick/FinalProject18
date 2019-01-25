@@ -9,7 +9,7 @@ pygame.display.set_caption('Magnet Monopoly')
 
 BackgroundIMG = pygame.image.load("monopolyboard.png")
 gameDisplay.blit(BackgroundIMG, (0,0))
-pygame.display.update()
+#pygame.display.update()
 
 hatIMG = pygame.image.load("hat.png")
 carIMG = pygame.image.load("car.png")
@@ -117,9 +117,15 @@ max = 12
 color1=[]
 color2=[]
 
+for e in pygame.event.get():
+    if e.type == pygame.QUIT:  
+      quit()
+player1character = []
+player2character = []
+
 while player1.money > 0 and player2.money > 0:
-  # for e in pygame.event.get():
-  #   if e.type == pygame.QUIT:   
+
+  #gameDisplay.blit(carIMG, (750,520))
   dice_answer1= input(f"{player1.name}, are you ready to roll the dice? Click enter to roll.")
   move = int(random.randint(min,max))
   print(f"{player1.name} rolled a {move}")
@@ -128,6 +134,9 @@ while player1.money > 0 and player2.money > 0:
   if player1.location < 40:
     gameDisplay.blit(carIMG, (board[player1.location].car_coordinates))
     pygame.display.update()
+    player1character.append(carIMG)
+  if len(player1character) > 1:
+    player1character.pop(0)
 
   if player1.location >= 40:
     player1.location = player1.location % 40
