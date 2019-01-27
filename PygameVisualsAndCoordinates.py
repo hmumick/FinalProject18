@@ -26,7 +26,7 @@ gameDisplay.blit(BackgroundIMG, [0,0])
 hatIMG = pygame.image.load("hat.png")
 carIMG = pygame.image.load("car.png")
 
-Start = (750, 520)
+Go = (750, 520)
 gameDisplay.blit(hatIMG, (Start))
 gameDisplay.blit(carIMG, (Start))
 
@@ -146,6 +146,9 @@ Tax2Car = (750, 390)
 
 RafalowskiCar = (750, 440)
 #gameDisplay.blit(carIMG, (RafalowskiCar))
+
+
+
 
 PintoHat = (670, 520)
 #gameDisplay.blit(hatIMG, (PintoHat))

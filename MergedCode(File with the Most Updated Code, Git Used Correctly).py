@@ -135,14 +135,15 @@ while player1.money > 0 and player2.money > 0:
     gameDisplay.blit(carIMG, (board[player1.location].car_coordinates))
     pygame.display.update()
     player1character.append(carIMG)
-  if len(player1character) > 1:
-    player1character.pop(0)
-
   if player1.location >= 40:
     player1.location = player1.location % 40
     player1.money= player1.money + 200
     gameDisplay.blit(carIMG, (board[player1.location].car_coordinates))
+    pygame.display.update()
+    player1character.append(carIMG)
     print(f"{player1.name} now has {player1.money} because they got 200 dollars for passing Go.")
+  if len(player1character) > 1:
+    player1character.pop(0)
   print(f"{player1.name} is at {board[player1.location].name}")
 
   if board[player1.location].owner == 'Chance':
@@ -298,12 +299,18 @@ while player1.money > 0 and player2.money > 0:
   player2.location = player2.location + move2
 
   if player2.location < 40:
-    gameDisplay.blit(hatIMG, (board[player2.location].hat_coordinates))
+    gameDisplay.blit(carIMG, (board[player2.location].car_coordinates))
+    pygame.display.update()
+    player2character.append(carIMG)
   if player2.location >= 40:
     player2.location = player2.location % 40
     player2.money = player2.money + 200
     gameDisplay.blit(carIMG, (board[player2.location].hat_coordinates))
+    pygame.display.update()
+    player2character.append(carIMG)
     print(f"{player2.name} now has {player2.money} because they got 200 dollars for passing Go.")
+  if len(player2character) > 1:
+    player2character.pop(0)
   print(f"{player2.name} is at {board[player2.location].name}")
 
   if board[player2.location].owner == 'Chance':
