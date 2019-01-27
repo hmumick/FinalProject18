@@ -1,29 +1,31 @@
 import random #import the random function in order to randomly select a number, which is used later on in the function
 import pygame
 
+#This game sets the size of the pygame display, and titles the name of the pygame window as Magnet Monopoly
 pygame.init()
 display_width= 880
 display_height= 600
 gameDisplay = pygame.display.set_mode((display_width,display_height))
 pygame.display.set_caption('Magnet Monopoly')
 
+#Sets our created monopoly board as the background image and displays it
 BackgroundIMG = pygame.image.load("monopolyboard.png")
 gameDisplay.blit(BackgroundIMG, (0,0))
-#pygame.display.update()
 
+#Downloads the image of our board pieces, a hat and car, and puts them into the file
 hatIMG = pygame.image.load("hat.png")
 carIMG = pygame.image.load("car.png")
 
 #this function gives the instructions on how to play Monopoly
 def instructions():
   """This function gives the user instructions on how to play Magnet Monopoly"""
-  print("Here are the rules to Magnet Monopoly! INSERT RULES HERE.")
+  print("Welcome to Magnet Monopoly! This is a 2 person game of monopoly, where the board is all Magnet themed! Like regular monopoly, you land on different properties, buy them or pay rent if they are already owned, and build houses and hotels on them if you all the properties of a given color set. There is no trading, and the moment one of you has no money, the game ends. You each start with 1500 dollars, so spend your money wisely, and good luck!")
   print("")
   return 
 
 instructions() #this calls on the instructions function
 
-#this is a class that has all of the board game 
+#this is a class that has defines all of the spaces on the board, including how much they cost, how much each house costs, how much to pay for a given number of houses if someone lands on the space, determining who is the owner of that space, and figuring out their coordinates in the pygame window. 
 class board_pieces:
 
   def __init__(self, name, owner, color, purchase_price, house_price, rent_price, house_1price, house_2price, house3_price, house4_price, hotel_price, location, house_owner, house_2count, house_count, hotel_owner,stationcount1, stationcount2, car_coodinates, hat_coordinates):
@@ -90,7 +92,7 @@ Guidance= board_pieces("guidance", 'none', "dark blue",400,200, 50, 200, 600, 14
 Tax2= board_pieces('Tax', 'Tax', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 39, 'none', 0 ,0 , 'none',0,0,(750, 390), (750, 410))
 RafOffice= board_pieces("Rafolowski's Office", 'none', "dark blue",350, 200, 35, 175, 500, 1100, 1300, 1500, 40, 'none',0 , 0, 'none',0,0, (750, 440), (750, 455))
 
-
+#This class defines the 2 players in the game, including their name, where they are on the board, how much money they have, and how many stations they own
 class Player:
   def __init__(self, name, location, money, station):
     self.name = name
@@ -98,43 +100,53 @@ class Player:
     self.money = money
     self.station = station
 
-
+#This list defines all the spacces on the board in order. That way, this list can be used as a way to determine where the player is on the board, and set their location to that space.
 board= [Go, Pinto, Chance1, Arnold, Tax1, MakerSpaceStation, Raite, Chance2, Gupta, Wickerhauser, LOP, Tenanbaum, Chance3, Nowakowski, Mcmenamin, GymStation, M_O, Chance4, Valverde, Mejia, Free_Parking, Sanservino, Chance5, Valley, Draesel, LabStation, Weisser, Fang, Chance6, Gerstein, GoToLOP, OConnor, Liu, Chance7, Moskowitz, AuditoriumStation, Chance8, RafOffice, Tax2, Guidance]
 
+#Initializing player 1, who starts at location 0 which is Go, has 1500 dollars, and doesn't own any stations
 player1name = input("Player one, input your name. You will go first. ")
 player1= Player(player1name, 0, 1500, 0)
-
+#Tells the player he starts at Go
 print(f"You are starting at {board[player1.location].name}") 
 
+#Initializing player 2
 player2name = input("Player two, input your name. ") 
 player2= Player(player2name, 0, 1500, 0 )
-
+#Tells the player he starts at Go
 print(f"You are starting at {board[player2.location].name}") 
 
+#Sets the minimum places the person can move at 2, and the maximum places the person can move at 12, just like rolling 2 dice
 min = 2
 max = 12
 
+#Lists to see if the player owns all the spaces of a certain color, so they can start building houses and hotels on those spaces
 color1=[]
 color2=[]
 
+#This loop escapes the game if you close the pygame window
 for e in pygame.event.get():
     if e.type == pygame.QUIT:  
       quit()
+#Sets a list of where the coordinates of the car and hat are. That way, when it's time to change the location of the car or hat, the previous image of the car/hat can be removed and replaced with the coordinates of the new image
 player1character = []
 player2character = []
 
+#Game only occurs when the players have money
 while player1.money > 0 and player2.money > 0:
-
-  #gameDisplay.blit(carIMG, (750,520))
   dice_answer1= input(f"{player1.name}, are you ready to roll the dice? Click enter to roll.")
+#Pick a random integer between 2 and 12 for the player to move
   move = int(random.randint(min,max))
   print(f"{player1.name} rolled a {move}")
+#Move the player to that location
   player1.location = player1.location + move
 
   if player1.location < 40:
+#Set the image of the car to the coordinates of the location where the player is currently at 
     gameDisplay.blit(carIMG, (board[player1.location].car_coordinates))
+#Display the image and the current location of the image to the list that tracks where the car was previously. That way, when it goes through the loop again, this previous image of the car can be replaced in the list by the image of the car at the new location.
     pygame.display.update()
     player1character.append(carIMG)
+#if the number is greater than 40, take the mod of that number to find the location of where the player is on the board
   if player1.location >= 40:
     player1.location = player1.location % 40
     player1.money= player1.money + 200
@@ -222,7 +234,9 @@ while player1.money > 0 and player2.money > 0:
 
   elif board[player1.location].owner == player2.name:
     player1.money= player1.money - board[player1.location].rent_price
+    player2.money = player2.money + board[player1.location].rent_price
     print(f"{player1.name} now has {player1.money} dollars because they landed on Player Two's Property at {board[player1.location].name}. ")
+    print(f"{player2.name} now has {player2.money} dollars after collecting it from Player 1.")
 
   elif board[player1.location].owner == player1.name:
     print("This location is your property, so you don't have to pay money!")
