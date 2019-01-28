@@ -1,9 +1,8 @@
 # Intro to Programming Final Project - Fall 2018
 
-* Project details are in description.md
-* Replace the content of this file with your own info about your project before the due date
-* Don't forget to fill out the [Project Proposal Form](https://airtable.com/shrrdA41unoBvi6Ki) before break.
+Magnet Monopoly
 
-## Setting Up Your Repo
+By: Harvin Mumick and Himanee Hendre
 
-On the GitHub page for this repository, click the "Fork" button. This will create your own copy of this repository, linked to my original. Use the same cloning method we used before to clone the repository to your PythonAnywhere account
+
+For our final project, we created a Magnet version of Monopoly. The Monopoly we coded is made to have visuals, but since there is lots of code in our while loop that has to be updated in the pygame window, the window is unable to respond quick enough. However, the python part of the game works. It is coded exactly the same as normal Monopoly, except there is no trading and you cannot mortgage. Everything else works exactly the same as regular Monopoly, where you buy property, put houses on it, and hopefully win. Enjoy!
